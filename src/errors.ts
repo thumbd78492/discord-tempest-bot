@@ -28,4 +28,56 @@ export const botDeployErrorOf: (msg: string) => BotDeployError = (msg) => ({
   msg
 })
 
-export type AppError = EnvVarEmptyError | BotLoginError | BotDeployError
+export type MongoConnectError = {
+  _tag: 'MongoConnectError'
+  msg: string
+}
+
+export const mongoConnectErrorOf: (msg: string) => MongoConnectError = (msg) => ({
+  _tag: 'MongoConnectError',
+  msg
+})
+
+export type AppError = EnvVarEmptyError | BotLoginError | BotDeployError | MongoConnectError
+
+export type InvalidParameterError = {
+  _tag: 'InvalidParameterError'
+  msg: string
+}
+
+export const invalidParameterErrorOf: (msg: string) => InvalidParameterError = (msg) => ({
+  _tag: 'InvalidParameterError',
+  msg
+})
+
+export type ParameterNotFoundError = {
+  _tag: 'ParameterNotFoundError'
+  msg: string
+}
+
+export const parameterNotFoundErrorOf: (msg: string) => ParameterNotFoundError = (msg) => ({
+  _tag: 'ParameterNotFoundError',
+  msg
+})
+
+export type ParameterError = InvalidParameterError | ParameterNotFoundError
+
+export type MongoError = {
+  _tag: 'MongoError'
+  msg: string
+}
+
+export const mongoErrorOf: (msg: string) => MongoError = (msg) => ({
+  _tag: 'MongoError',
+  msg
+})
+
+export type NotFoundError = {
+  _tag: 'NotFoundError'
+  msg: string
+}
+
+export const notFoundErrorOf: (msg: string) => NotFoundError = (msg) => ({
+  _tag: 'NotFoundError',
+  msg
+})

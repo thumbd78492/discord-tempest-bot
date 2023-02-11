@@ -8,7 +8,7 @@ import * as TE from 'fp-ts/TaskEither'
 export const loginBot: (appConfig: AppConfig) => (client: Client) => TE.TaskEither<AppError, string> =
   (appConfig) => (client) =>
     TE.tryCatch(
-      () => client.login(appConfig.token),
+      () => client.login(appConfig.discordConfig.token),
       (e) => botLoginErrorOf(`Bot Login Fail: ${(e as DiscordjsClientLoginError).code}`)
     )
 

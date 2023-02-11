@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "concurrently \"tsc -w \" \"nodemon dist/index.js\"",
+    "dev": "tsc && nodemon dist/index.js",
+    "dev-con": "concurrently \"tsc -w \" \"nodemon dist/index.js\"",
     "fix-prettier": "prettier --write \"./src/**/*.ts\"",
     "gcp-build": "npm run build",
     "deploy": "gcloud app deploy --no-cache"
@@ -21,9 +22,13 @@
     "dotenv": "^16.0.3",
     "fp-ts": "^2.13.1",
     "io-ts": "^2.2.20",
-    "io-ts-types": "^0.5.19"
+    "io-ts-types": "^0.5.19",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.9.1",
+    "ts-pattern": "^4.1.4"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.18",
     "concurrently": "^7.6.0",
     "nodemon": "^2.0.20",
