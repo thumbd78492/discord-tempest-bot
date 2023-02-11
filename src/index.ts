@@ -49,9 +49,9 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 pipe(
   appConfig,
   TE.fromEither,
-  TE.chainFirstW((appConfig) => establishMongoConnection(appConfig)),
-  TE.chainFirst((appConfig) => deploySlashCommands(appConfig)(commandList)),
-  TE.chainFirst((appConfig) => loginBot(appConfig)(client)),
+  TE.chainFirstW(establishMongoConnection),
+  TE.chainFirst(deploySlashCommands(commandList)),
+  TE.chainFirst(loginBot(client)),
   TE.chain(() => TE.of(setBotListener(client)(commandList))),
   TE.match(
     (e) => console.log(`${e._tag}: ${e.msg}`),

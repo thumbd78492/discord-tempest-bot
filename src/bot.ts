@@ -5,8 +5,8 @@ import { SlashCommand } from './types/command'
 import { DiscordjsClientLoginError } from './types/response'
 import * as TE from 'fp-ts/TaskEither'
 
-export const loginBot: (appConfig: AppConfig) => (client: Client) => TE.TaskEither<AppError, string> =
-  (appConfig) => (client) =>
+export const loginBot: (client: Client) => (appConfig: AppConfig) => TE.TaskEither<AppError, string> =
+  (client) => (appConfig) =>
     TE.tryCatch(
       () => client.login(appConfig.discordConfig.token),
       (e) => botLoginErrorOf(`Bot Login Fail: ${(e as DiscordjsClientLoginError).code}`)
