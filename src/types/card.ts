@@ -1,6 +1,6 @@
 import * as E from 'fp-ts/Either'
 import * as TSP from 'ts-pattern'
-import { InvalidParameterError, invalidParameterErrorOf } from '../errors'
+import { InvalidParameterError, invalidParameterErrorOf } from './errors'
 import { exhaustiveStringTuple } from './exhaustiveStringTuple'
 import { identity, pipe } from 'fp-ts/lib/function'
 

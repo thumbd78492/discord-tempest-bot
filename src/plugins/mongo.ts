@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import * as TE from 'fp-ts/TaskEither'
-import { MongoConnectError, mongoConnectErrorOf } from '../errors'
-import { AppConfig } from '../config'
+import { MongoConnectError, mongoConnectErrorOf } from '../types/errors'
+import { AppConfig } from '../types/config'
 
 export const establishMongoConnection: (appConfig: AppConfig) => TE.TaskEither<MongoConnectError, typeof mongoose> = (
   appConfig

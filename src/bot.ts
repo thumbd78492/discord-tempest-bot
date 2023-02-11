@@ -1,6 +1,6 @@
 import { Client, Collection, Events } from 'discord.js'
-import { AppConfig } from './config'
-import { AppError, botLoginErrorOf } from './errors'
+import { AppConfig } from './types/config'
+import { AppError, botLoginErrorOf } from './types/errors'
 import { SlashCommand } from './types/command'
 import { DiscordjsClientLoginError } from './types/response'
 import * as TE from 'fp-ts/TaskEither'

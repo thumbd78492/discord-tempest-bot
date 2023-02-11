@@ -1,21 +1,22 @@
 import { Client, GatewayIntentBits } from 'discord.js'
 import { PingSlashCommand } from './commands/ping'
 import { deploySlashCommands } from './deploy'
-import { pipe } from 'fp-ts/lib/function'
 import dotenv from 'dotenv'
 import * as A from 'fp-ts/lib/Array'
 import * as E from 'fp-ts/Either'
 import * as TE from 'fp-ts/TaskEither'
 import { sequenceS } from 'fp-ts/Apply'
-import { AppError } from './errors'
-import { AppConfig, readEnvironmentVariable, DiscordConfig, MongoConfig } from './config'
+import { AppError } from './types/errors'
+import { AppConfig, readEnvironmentVariable, DiscordConfig, MongoConfig } from './types/config'
 import { loginBot, setBotListener } from './bot'
 import { cardSlashCommands } from './commands/card'
 import { establishMongoConnection } from './plugins/mongo'
+import { pipe } from 'fp-ts/lib/function'
 
 // register commands
 const commandList = [PingSlashCommand].concat(cardSlashCommands)
 
+// Read .env file (if exist)
 dotenv.config()
 
 // read config

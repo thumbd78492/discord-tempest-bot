@@ -1,6 +1,6 @@
 import * as t from 'io-ts'
 import * as E from 'fp-ts/Either'
-import { InvalidParameterError, invalidParameterErrorOf } from './errors'
+import { InvalidParameterError, invalidParameterErrorOf } from './types/errors'
 import { flow } from 'fp-ts/lib/function'
 
 export const stringDecoder: (fieldName: string) => (s: unknown) => E.Either<InvalidParameterError, string> = (

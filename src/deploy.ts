@@ -1,9 +1,9 @@
 import { DiscordAPIError, REST, Routes } from 'discord.js'
-import { AppConfig } from './config'
+import { AppConfig } from './types/config'
 import { SlashCommand } from './types/command'
 import { DeployCommandsResponse } from './types/response'
-import * as TE from 'fp-ts/TaskEither'
-import { botDeployErrorOf, AppError } from './errors'
+import * as TE from 'fp-ts/lib/TaskEither'
+import { AppError, botDeployErrorOf } from './types/errors'
 
 export const deploySlashCommands: (
   appConfig: AppConfig
